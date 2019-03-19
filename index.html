@@ -6,29 +6,28 @@
 </head>
 <body>
 <div id="app">
-    <h1>v-model</h1>
     <!--双向数据绑定 靠的表单-->
-    <input type="text" v-model="msg">
-    <div></div>
+    <input type="text" v-model="msg.a">
+    <div>{{msg.a}}</div>
     <ul><li></li></ul>
-    {{msg}}
+    {{msg.a}}
 </div>
-<script src="compile.js"></script>
-<script src="mvvm.js"></script>
+<script src="js/watch.js"></script>
+<script src="js/observer.js"></script>
+<script src="js/compile.js"></script>
+<script src="js/mvvm.js"></script>
 <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
 <script>
-    new MVVM({
+    //Object.defineProperty get和set
+    //vue中实现双向绑定 1.模板编译 2.数据劫持 3.Watcher
+  let vm =  new MVVM({
         el:'#app',
         data:{
-            msg:'hello world'
+            msg:{
+                a:'vue'
+            }
         }
-    })
-    // const vm = new MVVM({
-    //     el:"#app",
-    //     data:{
-    //         msg:'111'
-    //     }
-    // })
+    });
 </script>
 </body>
 </html>
